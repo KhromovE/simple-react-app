@@ -100,7 +100,7 @@ class FormExampleForm extends Component {
     if (field === 'date') {
       value = sortDirection ? Number(new Date(item[field])) : -Number(new Date(item[field]));
     } else if (field === 'customerName' || field === 'contractorName') {
-      value = item[field];
+      value = sortDirection ? item[field][0].charCodeAt(0) : -item[field].charCodeAt(0);
     }
 
     return value;
