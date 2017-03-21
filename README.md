@@ -1,4 +1,6 @@
 # simple-react-app
-Simple react app
+This is repo contain a simple React app
 ### Start
-  npm start 
+```
+npm start
+```
