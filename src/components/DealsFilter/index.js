@@ -8,6 +8,29 @@ const options = [
   { key: 'USD', text: 'USD', value: 'USD' },
 ];
 
+const formFields = [
+  {
+    key: 'amount',
+    value: 'Сумма сделки',
+    type: 'number',
+  },
+  {
+    key: 'customerName',
+    value: 'Имя заказчика',
+    type: 'text',
+  },
+  {
+    key: 'contractorName',
+    value: 'Имя исполнителя',
+    type: 'text',
+  },
+  {
+    key: 'date',
+    value: 'Дата',
+    type: 'date',
+  },
+];
+
 class DealsFilter extends Component {
   constructor(props) {
     super(props);
@@ -83,6 +106,20 @@ class DealsFilter extends Component {
     });
   }
 
+  renderFields() {
+    return formFields.map(field => (
+      <Form.Field>
+        <Input
+          name={field.key}
+          type={field.type}
+          value={this.state[field.key]}
+          onChange={this.handleInputChange}
+          placeholder={field.value}
+        />
+      </Form.Field>
+    ));
+  }
+
   render() {
     return (
       <div>
@@ -96,41 +133,7 @@ class DealsFilter extends Component {
                 placeholder="Валюта сделки"
               />
             </Form.Field>
-            <Form.Field>
-              <Input
-                name="amount"
-                type="number"
-                value={this.state.amount}
-                onChange={this.handleInputChange}
-                placeholder="Сумма сделки"
-              />
-            </Form.Field>
-            <Form.Field>
-              <Input
-                name="customerName"
-                type="text"
-                value={this.state.customerName}
-                onChange={this.handleInputChange}
-                placeholder="Имя заказчика"
-              />
-            </Form.Field>
-            <Form.Field>
-              <Input
-                name="contractorName"
-                type="text"
-                value={this.state.contractorName}
-                onChange={this.handleInputChange}
-                placeholder="Имя исполнителя"
-              />
-            </Form.Field>
-            <Form.Field>
-              <Input
-                name="date"
-                type="date"
-                value={this.state.date}
-                onChange={this.handleInputChange}
-              />
-            </Form.Field>
+            {this.renderFields()}
           </Form.Group>
         </Form>
       </div>
