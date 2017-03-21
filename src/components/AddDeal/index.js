@@ -135,7 +135,7 @@ class AddDeal extends Component {
 
   renderFields() {
     return formFields.map(field => (
-      <Form.Field>
+      <Form.Field key={field.key}>
         <label htmlFor={field.key}>{field.value}</label>
         <input
           type={field.type}

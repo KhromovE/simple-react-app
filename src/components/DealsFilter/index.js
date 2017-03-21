@@ -108,7 +108,7 @@ class DealsFilter extends Component {
 
   renderFields() {
     return formFields.map(field => (
-      <Form.Field>
+      <Form.Field key={field.key}>
         <Input
           name={field.key}
           type={field.type}
