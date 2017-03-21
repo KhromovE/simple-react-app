@@ -35,7 +35,7 @@ const formFields = [
   },
   {
     key: 'customerName',
-    value: 'Исполнителя',
+    value: 'Имя исполнителя',
     type: 'text',
   },
   {
