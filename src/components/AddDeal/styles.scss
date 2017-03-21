@@ -1,0 +1,42 @@
+.app-add-deal-font-style {
+  color: $base-color;
+  font-weight: 500;
+}
+
+.app-add-deal-amount {
+  display: flex;
+
+  .app-deal-amount-input {
+    width: 10rem;
+  }
+
+  .app-deal-amount-usd {
+    @extend .app-add-deal-font-style;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-left: 1rem;
+  }
+}
+
+.app-deal-amount-additions {
+  display: flex;
+  flex-direction:column;
+
+  border-left: 3px $base-color solid;
+  padding-left: 1rem;
+
+  margin: 1.5rem 0;
+
+  .app-deal-amount-addition {
+    @extend .app-add-deal-font-style;
+
+    margin-top: 1rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
