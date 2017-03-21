@@ -27,6 +27,24 @@ const additionData = [
   },
 ];
 
+const formFields = [
+  {
+    key: 'date',
+    value: 'Дата',
+    type: 'date',
+  },
+  {
+    key: 'customerName',
+    value: 'Исполнителя',
+    type: 'text',
+  },
+  {
+    key: 'contractorName',
+    value: 'Имя заказчика',
+    type: 'text',
+  },
+];
+
 
 class AddDeal extends Component {
   constructor(props) {
@@ -115,43 +133,29 @@ class AddDeal extends Component {
     });
   }
 
+  renderFields() {
+    return formFields.map(field => (
+      <Form.Field>
+        <label htmlFor={field.key}>{field.value}</label>
+        <input
+          type={field.type}
+          name={field.key}
+          id={field.key}
+          placeholder={field.value}
+          onChange={this.handleInputChange}
+          required
+        />
+      </Form.Field>
+    ));
+  }
+
   render() {
     const customerPaying = 'Заказ оплачивает заказчик';
     const contractorPaying = 'Заказ оплачивает исполнитель';
 
     return (
       <Form onSubmit={this.onSubmit}>
-        <Form.Field>
-          <label htmlFor="date">Дата</label>
-          <input
-            type="date"
-            name="date"
-            id="date"
-            placeholder="Дата"
-            onChange={this.handleInputChange}
-            required
-          />
-        </Form.Field>
-        <Form.Field>
-          <label htmlFor="customer-name">Имя заказчика</label>
-          <input
-            id="customer-name"
-            name="customerName"
-            placeholder="Имя заказчика"
-            onChange={this.handleInputChange}
-            required
-          />
-        </Form.Field>
-        <Form.Field>
-          <label htmlFor="contractor-name">Имя исполнителя</label>
-          <input
-            id="contractor-name"
-            name="contractorName"
-            placeholder="Имя исполнителя"
-            onChange={this.handleInputChange}
-            required
-          />
-        </Form.Field>
+        {this.renderFields()}
         <Form.Field>
           <label htmlFor="amount">Сумма сделки</label>
           <div className={styles['app-add-deal-amount']}>
