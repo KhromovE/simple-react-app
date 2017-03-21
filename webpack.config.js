@@ -42,6 +42,11 @@ const COMMON_CONFIG = {
       'lodash/filter',
       'semantic-ui-react',
       'semantic-ui-css/semantic.min.css',
+      'redux-devtools',
+      'redux-slider-monitor',
+      'redux-devtools-log-monitor',
+      'redux-devtools-dock-monitor',
+      'react-hot-loader',
     ],
   },
 
