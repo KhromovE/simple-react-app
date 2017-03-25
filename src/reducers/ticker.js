@@ -5,7 +5,7 @@ const initialState = {
   processing: true,
 };
 
-const TODOReducer = (state = initialState, action) => {
+const tickerReducer = (state = initialState, action) => {
   switch (action.type) {
     case actions.GET_TICKER_SUCCESS:
       return Object.assign({}, state, {
@@ -24,4 +24,4 @@ const TODOReducer = (state = initialState, action) => {
   }
 };
 
-export default TODOReducer;
+export default tickerReducer;

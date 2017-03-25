@@ -162,7 +162,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(store) {
   return {
-    deals: store.dealReducer.deals,
+    deals: store.deal.deals,
   };
 }
 

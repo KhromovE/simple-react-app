@@ -1,7 +1,7 @@
 import ticker from './ticker';
-import dealReducer from './deal';
+import deal from './deal';
 
 export default {
   ticker,
-  dealReducer,
+  deal,
 };
