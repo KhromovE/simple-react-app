@@ -4,3 +4,10 @@ This repo contains the simple React app
 ```
 npm start
 ```
+### Test
+
+```
+npm test
+npm run test:covarage
+npm run test:watch
+```
