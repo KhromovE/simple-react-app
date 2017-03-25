@@ -8,6 +8,18 @@ const mockStore = configureStore(middlewares);
 
 export const USDT_ETH = '44';
 
+export const deal = {
+  id: '1234',
+  customerPaying: true,
+  amount: '10',
+  paidAmount: '10.3',
+  receivedAmount: '10',
+  commission: '0.3',
+  date: '2017-01-01',
+  customerName: 'New',
+  contractorName: 'New',
+};
+
 export const store = mockStore({
   ticker: {
     USDT_ETH: USDT_ETH,
@@ -24,22 +36,8 @@ export const fullStore = mockStore({
     processing: false,
   },
   deal: {
-    deals: [
-      {
-        id: '1234',
-        customerPaying: true,
-        amount: '10',
-        paidAmount: '10.3',
-        receivedAmount: '10',
-        commission: '0.3',
-        date: '2017-01-01',
-        customerName: 'New',
-        contractorName: 'New',
-      },
-    ],
+    deals: [deal],
   },
 });
-
-export const TestProvider = ({ store, children }) => (<Provider store={store}>children</Provider>);  // eslint-disable-line
 
 export const noop = function () {};

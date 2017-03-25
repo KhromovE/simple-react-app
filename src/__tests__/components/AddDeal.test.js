@@ -1,7 +1,8 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 
-import AddDeal from '../../components/AddDeal';
-import { noop, store } from '../../services/tests';
+import { AddDeal } from '../../components/AddDeal';
+import { noop, store, deal } from '../../services/tests';
 
 describe('AddDeal', () => {
   it('should render a component', () => {
@@ -12,24 +13,28 @@ describe('AddDeal', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  //
-  // it('should change form fields', () => {
-  //   const value = '33';
-  //
-  //   const wrapper = mount(
-  //     <Provider store={store}>
-  //       <AddDeal
-  //         createDeal={noop}
-  //       />
-  //     </Provider>,
-  //   );
-  //
-  //   wrapper.find('[id="amount"]').simulate('change', {
-  //     target: { value },
-  //   });
-  //
-  //   console.log(wrapper.children().props());
-  //
-  //   // expect(wrapper.state.model[value]).value.toEqual(value);
-  // });
+
+  it('should change form fields', () => {
+    const mockFn = jest.fn();
+    const options = {
+      context: { store },
+      childContextTypes: { store: React.PropTypes.object.isRequired },
+    };
+
+    const wrapper = mount(
+      <AddDeal
+        store={store}
+        createDeal={mockFn}
+      />,
+      options,
+    );
+
+    // set deal object to component state
+    wrapper.setState({
+      model: deal,
+    });
+
+    wrapper.find('[type="submit"]').get(0).click();
+    expect(mockFn).toHaveBeenCalled();
+  });
 });

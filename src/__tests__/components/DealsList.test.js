@@ -22,6 +22,7 @@ describe('DealsList', () => {
     );
 
     expect(wrapper.find('Message')).toHaveLength(1);
+    expect(wrapper.find('Table')).toHaveLength(0);
   });
 
   it('should mount component with deals', () => {

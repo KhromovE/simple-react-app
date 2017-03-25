@@ -46,7 +46,7 @@ const formFields = [
 ];
 
 
-class AddDeal extends Component {
+export class AddDeal extends Component {
   constructor(props) {
     super(props);
 
