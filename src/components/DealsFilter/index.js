@@ -31,7 +31,7 @@ const formFields = [
   },
 ];
 
-class DealsFilter extends Component {
+export class DealsFilter extends Component {
   constructor(props) {
     super(props);
 
